@@ -24,10 +24,11 @@
             /* signin button */
             .signIn-btn {
                 margin-top: 15px;
+                margin-bottom: 17px;
                 width: 100%;
                 padding: 7px;
                 border-radius: 3px;
-                border: 1px solid #01268C;
+                border: 1px solid white;
                 background-color: #005CC8;
                 color: #fff;
                 font-weight: 500;
@@ -35,30 +36,13 @@
             }
 
             .signIn-btn:hover {
-                border: 1px solid #57A5EB;
+                background-color: #2060a8;
             }
 
-            /* signin button */
-            .signOut-btn {
-                margin-top: 15px;
-                margin-bottom: 17px;
-                width: 100%;
-                padding: 7px;
-                border-radius: 3px;
-                border: 1px solid black;
-                background-color: white;
-                color: black;
-                font-weight: 500;
-                outline: none;
-            }
-
-            .signOut-btn:hover {
-                border: 1px solid grey;
-            }
             /* ---------------------------- */
 
-            /* login form */
-            .login-form {
+            /* signin form */
+            .signin-form {
                 background-color: white;
                 font-family: "Poppins", sans-serif;
                 width: 350px;
@@ -66,8 +50,8 @@
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
             }
 
-            /* login form text boxes */
-            .login-form-text {
+            /* signin form text boxes */
+            .signin-form-text {
                 font-family: "Poppins", sans-serif;
                 margin-top: 10px;
                 border: 1px solid gray;
@@ -77,7 +61,7 @@
                 outline: none;
             }
 
-            .login-form-text:focus {
+            .signin-form-text:focus {
                 border: 1px solid #01268C;
             }
             /* top beach view image */
@@ -123,19 +107,52 @@
 
         <script>
             function viewPassword() {
-                var pw = document.getElementById("pw");
+                var password = document.getElementById("pw");
 
-                if (pw.type == "password") {
-                    pw.type = "text";
+                if (password.type == "password") {
+                    password.type = "text";
                 } else {
-                    pw.type = "password";
+                    password.type = "password";
                 }
             }
+
+            function signIn() {
+
+                var userNameInput = document.getElementById("userName");
+                var passwordInput = document.getElementById("pw");
+
+                var userName = userNameInput.value;
+                var password = passwordInput.value;
+
+                if(userName === "" || password === ""){
+                    window.alert("User Name or Password cannot be blank.");  
+                }     
+
+                else if(userName === "shanuka2023" && password === "qwerty123"){
+                    window.location.href = "homePage.html";
+                }
+
+                else{
+                    window.alert("Incorrect User Name or Password.");           
+                }
+        
+            }
+
+            function onGoogle(){
+                const icon = document.getElementById("facebook");
+                window.open("https://www.facebook.com/");
+            }
+
+            function onFacebook(){
+                const icon = document.getElementById("facebook");
+                window.open("https://www.google.com/");
+            }
+
         </script>
     </head>
     <body>
         <div class="mainContainer">
-            <div class="login-form">
+            <div class="signin-form">
                 <div class="top-img">
                     <img src="https://media.istockphoto.com/id/1220728836/photo/tropical-island-palm-tree-beach-from-above.jpg?s=612x612&w=0&k=20&c=1cYuKjGdtJwPRYT-iHk4S49C2-fq-U05JPzD66wR9BE=" alt="beach" />
                 </div>
@@ -148,22 +165,21 @@
                             </td>
                             <td style="text-align: right;">
                                 <!-- social icons -->
-                                <i title="Login with Google" style="margin-right: 5px;" class="fa fa-google" aria-hidden="true"></i>
-                                <i title="Login with Facebook" class="fa fa-facebook-official" aria-hidden="true"></i>
+                                <i id= "google" onclick="onFacebook()" title="Login with Google" style="margin-right: 5px;" class="fa fa-google" aria-hidden="true"></i>
+                                <i id = "facebook" onclick="onGoogle()" title="Login with Facebook" class="fa fa-facebook-official" aria-hidden="true"></i>
                             </td>
                         </tr>
                     </table>
 
-                    <input class="login-form-text" type="text" placeholder="User Name" /> <br />
-                    <input id="pw" class="login-form-text" type="password" placeholder="Password" /> <br />
+                    <input id="userName" class="signin-form-text" type="text" placeholder="User Name" /> <br />
+                    <input id="pw" class="signin-form-text" type="password" placeholder="Password" /> <br />
 
                     <div style="margin-top: 7px;" class="viewPassword">
                         <input type="checkbox" onclick="viewPassword()" />
                         <p style="margin-left: 7px; font-weight: 500; font-size: 9pt;">View password</p>
                     </div>
 
-                    <button class="signIn-btn">Sign In</button>
-                    <button class="signOut-btn">Sign Out</button>
+                    <button class="signIn-btn" onclick="signIn()">Sign In</button>
                 </div>
             </div>
         </div>
