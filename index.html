@@ -29,7 +29,7 @@
                 padding: 7px;
                 border-radius: 3px;
                 border: 1px solid white;
-                background-color: #005CC8;
+                background-color: #005cc8;
                 color: #fff;
                 font-weight: 500;
                 outline: none;
@@ -62,7 +62,7 @@
             }
 
             .signin-form-text:focus {
-                border: 1px solid #01268C;
+                border: 1px solid #01268c;
             }
             /* top beach view image */
             .top-img > img {
@@ -88,8 +88,8 @@
             }
 
             .fa:hover {
-                color: #01268C;
-                border: 1px solid #01268C;
+                color: #01268c;
+                border: 1px solid #01268c;
             }
 
             .mainContainer {
@@ -117,37 +117,30 @@
             }
 
             function signIn() {
-
                 var userNameInput = document.getElementById("userName");
                 var passwordInput = document.getElementById("pw");
 
                 var userName = userNameInput.value;
                 var password = passwordInput.value;
 
-                if(userName === "" || password === ""){
-                    window.alert("User Name or Password cannot be blank.");  
-                }     
-
-                else if(userName === "shanuka2023" && password === "qwerty123"){
+                if (userName === "" || password === "") {
+                    window.alert("User Name or Password cannot be blank.");
+                } else if (userName === "shanuka2023" && password === "qwerty123") {
                     window.location.href = "homePage.html";
+                } else {
+                    window.alert("Incorrect User Name or Password.");
                 }
-
-                else{
-                    window.alert("Incorrect User Name or Password.");           
-                }
-        
             }
 
-            function onGoogle(){
+            function onGoogle() {
                 const icon = document.getElementById("facebook");
                 window.open("https://www.facebook.com/");
             }
 
-            function onFacebook(){
+            function onFacebook() {
                 const icon = document.getElementById("facebook");
                 window.open("https://www.google.com/");
             }
-
         </script>
     </head>
     <body>
@@ -165,8 +158,8 @@
                             </td>
                             <td style="text-align: right;">
                                 <!-- social icons -->
-                                <i id= "google" onclick="onFacebook()" title="Login with Google" style="margin-right: 5px;" class="fa fa-google" aria-hidden="true"></i>
-                                <i id = "facebook" onclick="onGoogle()" title="Login with Facebook" class="fa fa-facebook-official" aria-hidden="true"></i>
+                                <i id="google" onclick="onFacebook()" title="Login with Google" style="margin-right: 5px;" class="fa fa-google" aria-hidden="true"></i>
+                                <i id="facebook" onclick="onGoogle()" title="Login with Facebook" class="fa fa-facebook-official" aria-hidden="true"></i>
                             </td>
                         </tr>
                     </table>
